@@ -1,58 +1,47 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Bitsound (using Laravel/Vue.js 2) 
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+"What's greater than love and chardonnay ? Love, chardonay AND Bitsound" Bitsound v2.0 is an aprovement of Bitsound v1.0. Bitsound v1.0 gave you every infos about electro musical culture from now and beyond.
+Bitsound v2.0 contains additional features : if you are an artist, you can create your profil et edit it with your informations : biography, events, pictures, soundclouds links and videos. Artists will also be able to write some posts about their muscial actualities. 
+Visitors will be able to like every articles and artists pages.
 
-## About Laravel
+The app will contain :
+* Articles page
+* Artists page
+* Festival page
+* Admin dashboard
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+For running the app, make sure you have [php 7+](http://php.net/downloads.php), [Laravel 5.5+](https://laravel.com/docs/5.5/installation), [node.js](https://nodejs.org/en/),  [Composer](https://getcomposer.org/download/), npm version 3+  and [Git](https://git-scm.com/) installed.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+### Prerequisites
+Edit the `.env` file and set the `database` and other config for the system after you copy the `.env`.example file.
 
-## Learning Laravel
+Then, install the extended package dependency.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+Install the `Laravel` extended repositories with : 
+```
+composer install -vvv
+```
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+Install the `Vuejs` extended repositories with : 
+```
+npm install
+```
 
-## Laravel Sponsors
+### What I used to build this app :
+* [Laravel v5.5](https://laravel.com/docs/5.5/installationphp) - PHP framework
+* [Bootstrap v4.0](https://getbootstrap.com/) - CSS framework
+* [Sass](https://sass-lang.com/) - Css preprocessor
+* [jQuery v3.3.1](https://jquery.com/) - JS librairy
+* [Balsamiq](https://balsamiq.com/) - Mockup tool
+* [Trello]() - Online tool project management
+* [Slides.com]() - Presentation tools
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+### Author
+* **[Orélia Sokambi]() - Fullstack PHP Web developer** - *Initial work*
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Pulse Storm](http://www.pulsestorm.net/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
+### Good to know
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
