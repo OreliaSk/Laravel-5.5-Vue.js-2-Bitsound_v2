@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     public function index(){
-        return view('pages.index');
+        $title = 'Bienvenu sur Bitsound v2.0';
+        return view('pages.index')->with('title', $title);
     }
 
     public function about(){
-        return view('pages.about');
+        $services = ['Articles', 'Artists', 'Festivals'];
+        return view('pages.about')->with('services', $services);
     }
 
     public function contact(){
