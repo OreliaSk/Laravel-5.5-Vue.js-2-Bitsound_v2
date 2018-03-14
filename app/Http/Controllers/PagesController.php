@@ -16,6 +16,18 @@ class PagesController extends Controller
         return view('pages.about')->with('services', $services);
     }
 
+    public function articles(){
+        return view('pages.articles');
+    }
+
+    public function artists(){
+        return view('pages.artists');
+    }
+
+    public function festivals(){
+        return view('pages.festivals');
+    }
+
     public function contact(){
         return view('pages.contact');
     }
