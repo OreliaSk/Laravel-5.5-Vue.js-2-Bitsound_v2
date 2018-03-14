@@ -25,7 +25,7 @@ Install the `Laravel` extended repositories with :
 $ composer install
 ```
 
-Install the node_modules packages extended repositories with : 
+Install the node_modules packages with : 
 ```
 $ npm install
 ```
