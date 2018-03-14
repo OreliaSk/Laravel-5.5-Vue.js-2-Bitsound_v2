@@ -1,3 +1,4 @@
+<?php $chemin = '/laravel/bitsound_v2/public' ;?>
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -8,6 +9,9 @@
         <link rel="stylesheet" href="{{asset('css/app.css')}}"
     </head>
     <body>
-        @yield('content')
+        @include('inc/navbar')
+        <div class="container">
+            @yield('content')
+        </div>
     </body>
 </html>
