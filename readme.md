@@ -22,17 +22,24 @@ Then, install the extended package dependency.
 
 Install the `Laravel` extended repositories with : 
 ```
-composer install -vvv
+$ composer install
 ```
 
-Install the `Vuejs` extended repositories with : 
+Install the node_modules packages extended repositories with : 
 ```
-npm install
+$ npm install
 ```
+
+For [Bootstrap v4.0.0](https://getbootstrap.com/) :
+```
+$ npm install bootstrap
+//*Warning : don't forget to `npm run dev` to compile css and js code if you're doing any modifications.*
+```
+
 
 ### What I used to build this app :
 * [Laravel v5.5](https://laravel.com/docs/5.5/installationphp) - PHP framework
-* [Bootstrap v4.0](https://getbootstrap.com/) - CSS framework
+* [Bootstrap v4.0.0](https://getbootstrap.com/) - CSS framework
 * [Sass](https://sass-lang.com/) - Css preprocessor
 * [jQuery v3.3.1](https://jquery.com/) - JS librairy
 * [Balsamiq](https://balsamiq.com/) - Mockup tool
