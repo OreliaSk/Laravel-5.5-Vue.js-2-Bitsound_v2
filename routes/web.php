@@ -18,4 +18,9 @@ Route::get('/artists', 'PagesController@artists');
 Route::get('/festivals', 'PagesController@festivals');
 Route::get('/contact', 'PagesController@contact');
 
+/*
+* Pour la création de toutes les routes relatives au controller PostsController
+*/
+Route::resource('posts', 'PostsController');
+
 
