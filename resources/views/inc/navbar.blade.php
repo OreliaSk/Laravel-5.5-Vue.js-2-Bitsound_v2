@@ -12,7 +12,7 @@
         <a class="nav-link" href="{{$chemin}}/about">A propos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{$chemin}}/articles">Articles</a>
+        <a class="nav-link" href="{{$chemin}}/posts">Articles</a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="{{$chemin}}/artists">Artistes</a>
