@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Post; // permet de lier le model Post au controller PostsController
 class PostsController extends Controller
 {
     /**
@@ -13,7 +13,11 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        /* return Post::all(); retourne tous les posts sans la view. 
+        / Donc on stock le resultat dans une variable
+        */
+        $posts = Post::all();
+        return view('posts.index')->with('posts', $posts);
     }
 
     /**

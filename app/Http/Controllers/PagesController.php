@@ -17,7 +17,7 @@ class PagesController extends Controller
     }
 
     public function articles(){
-        return view('pages.articles');
+        return view('pages.posts');
     }
 
     public function artists(){
