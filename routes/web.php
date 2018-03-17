@@ -22,5 +22,6 @@ Route::get('/contact', 'PagesController@contact');
 * Pour la création de toutes les routes relatives au controller PostsController
 */
 Route::resource('posts', 'PostsController');
+Route::resource('festivals', 'FestivalsController');
 
 
