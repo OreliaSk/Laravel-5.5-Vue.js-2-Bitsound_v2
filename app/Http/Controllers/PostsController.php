@@ -13,10 +13,11 @@ class PostsController extends Controller
      */
     public function index()
     {
-        /* return Post::all(); retourne tous les posts sans la view. 
-        / Donc on stock le resultat dans une variable
+        /* return Post::all(); retourne tous les posts sans la view. Donc on stock le resultat dans une variable
+        /* $posts = Post::all(); retourne tous les posts stockés dans une variable
+        /* $posts = Post::orderBy('created_at', 'desc')->get(); retourne tous les posts de manière descendante
         */
-        $posts = Post::all();
+        $posts = Post::orderBy('created_at', 'desc')->paginate(10);
         return view('posts.index')->with('posts', $posts);
     }
 
@@ -49,7 +50,8 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return view('posts.show')->with('post', $post);
     }
 
     /**
