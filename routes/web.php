@@ -25,4 +25,6 @@ Route::resource('posts', 'PostsController');
 Route::resource('festivals', 'FestivalsController');
 Route::resource('artists', 'ArtistsController');
 
+Auth::routes();
 
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
