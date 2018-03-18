@@ -51,6 +51,7 @@ class ArtistsController extends Controller
         $artist->genre = $request->input('genre');
         $artist->soundcloud = $request->input('soundcloud');
         $artist->youtube = $request->input('youtube');
+        $artist->user_id = auth()->user()->id;
         $artist->save();
 
         return redirect('/artists')->with('success', 'Votre profil a bien été crée !');
