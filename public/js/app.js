@@ -10,6 +10,8 @@ window._ = require('lodash');
  require('bootstrap');
 try {
     window.$ = window.jQuery = require('jquery');
+    window.Popper = require('popper.js').default;
+    require('bootstrap');
     
 } catch (e) {}
 
@@ -76,3 +78,4 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
