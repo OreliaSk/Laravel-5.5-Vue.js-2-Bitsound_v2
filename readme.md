@@ -30,16 +30,11 @@ Install the node_modules packages with :
 $ npm install
 ```
 
-For [Bootstrap v4.0.0](https://getbootstrap.com/) :
-```
-$ npm install bootstrap
-```
-
-
 ### What I used to build this app :
 * [Laravel v5.5](https://laravel.com/docs/5.5/installationphp) - PHP framework
 * [Bootstrap v4.0.0](https://getbootstrap.com/) - CSS framework
 * [Sass](https://sass-lang.com/) - Css preprocessor
+* [laravel-ckeditor v4.7](https://github.com/UniSharp/laravel-ckeditor) - Open source WYSIWYG text editor
 * [Balsamiq](https://balsamiq.com/) - Mockup tool
 * [Trello]() - Online tool project management
 * [Slides.com]() - Presentation tools
