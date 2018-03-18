@@ -7,8 +7,9 @@
         <h2 class="text-center">{{$artist->name}}</h2>
         <small class="text-center">Posté le {{$artist->created_at->format('d/m/Y H:i:s')}}</small> <!-- Permet de convertir le format DATE -->
         <hr>
-        <p>Genre musical : {{ $artist->genre}}</p>
-        <p>{{$artist->biography}}</p>
+        <p><span class="font-weight-bold">Genre musical :</span> {{ $artist->genre}}</p>
+        <!-- Afin de parser l'HTML lors de l'affichage, on utilise les !! -->
+        <p>{!!$artist->biography!!}</p>
         <small>
             Envie d'écouter plus de sons de {{$artist->name}} ? Retrouvez-les sur
             <a href="{{$artist->soundcloud}}">soundcloud</a>
@@ -17,5 +18,11 @@
             Retrouvez la chaîne Youtube de {{$artist->name}}
             <a href="{{$artist->youtube}}">ici</a>
         </small>
+        <hr>
+        <a href="{{$chemin}}/artists/{{$artist->id}}/edit" class="btn btn-success">Editer votre page artiste</a>
+        {!!Form::open(['action' => ['ArtistsController@destroy', $artist->id], 'method' => 'POST', 'class' => 'pull-right' ])!!}
+            {{Form::hidden('_method', 'DELETE')}}
+            {{ Form::submit('Supprimer votre profil', ['class' => 'btn btn-danger']) }}
+        {!!Form::close()!!}
     </div>
 @endsection

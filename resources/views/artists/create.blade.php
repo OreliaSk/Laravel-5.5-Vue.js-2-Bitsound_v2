@@ -10,7 +10,7 @@
         </div>
         <div class="form-group">
             <label>Parlez-nous un peu de vous</label>
-            {{ Form::textarea('biography', '', ['class' => 'form-control', 'placeholder' => 'Biographie']) }}
+            {{ Form::textarea('biography', '', ['class' => 'form-control', 'id' => 'article-ckeditor', 'placeholder' => 'Biographie']) }}
         </div>
         <div class="form-group">
             <label>Le genre de votre son</label>

@@ -76,7 +76,8 @@ class ArtistsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $artist = Artist::find($id);
+        return view('artists.edit')->with('artist', $artist);
     }
 
     /**
@@ -88,7 +89,24 @@ class ArtistsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'biography' => 'required',
+            'genre' => 'required',
+            'soundcloud' => 'required',
+            'youtube' => 'required',
+        ]);
+        
+        // Create artist profil
+        $artist = Artist::find($id);
+        $artist->name = $request->input('name');
+        $artist->biography = $request->input('biography');
+        $artist->genre = $request->input('genre');
+        $artist->soundcloud = $request->input('soundcloud');
+        $artist->youtube = $request->input('youtube');
+        $artist->save();
+
+        return redirect('/artists')->with('success', 'Votre profil a bien été mis à jour !');
     }
 
     /**
@@ -99,6 +117,8 @@ class ArtistsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $artist = Artist::find($id);
+        $artist->delete();
+        return redirect('/artists')->with('success', 'Votre profil a bien été supprimé !');
     }
 }

@@ -14,5 +14,9 @@
             @include('inc.messages')
             @yield('content')
         </div>
+        <script src="{{$chemin}}/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+            <script>
+                CKEDITOR.replace( 'article-ckeditor' );
+            </script>
     </body>
 </html>
