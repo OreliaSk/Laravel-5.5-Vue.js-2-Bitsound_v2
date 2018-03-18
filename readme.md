@@ -33,7 +33,6 @@ $ npm install
 For [Bootstrap v4.0.0](https://getbootstrap.com/) :
 ```
 $ npm install bootstrap
-//*Warning : don't forget to `npm run dev` to compile css and js code if you're doing any modifications.*
 ```
 
 
@@ -41,13 +40,12 @@ $ npm install bootstrap
 * [Laravel v5.5](https://laravel.com/docs/5.5/installationphp) - PHP framework
 * [Bootstrap v4.0.0](https://getbootstrap.com/) - CSS framework
 * [Sass](https://sass-lang.com/) - Css preprocessor
-* [jQuery v3.3.1](https://jquery.com/) - JS librairy
 * [Balsamiq](https://balsamiq.com/) - Mockup tool
 * [Trello]() - Online tool project management
 * [Slides.com]() - Presentation tools
 
 ### Author
-* **[Orélia Sokambi]() - Fullstack PHP Web developer** - *Initial work*
+* **[Orélia Sokambi](https://oreliask.github.io/MDBootstrap-Landing-page/index.html) - Fullstack PHP Web developer** - *Initial work*
 
 ### Good to know
 
