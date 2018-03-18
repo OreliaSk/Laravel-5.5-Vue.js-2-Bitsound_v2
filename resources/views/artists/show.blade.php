@@ -19,8 +19,8 @@
             <a href="{{$artist->youtube}}">ici</a>
         </small>
         <hr>
-        <a href="{{$chemin}}/artists/{{$artist->id}}/edit" class="btn btn-success">Editer votre page artiste</a>
-        {!!Form::open(['action' => ['ArtistsController@destroy', $artist->id], 'method' => 'POST', 'class' => 'pull-right' ])!!}
+        <a href="{{$chemin}}/artists/{{$artist->id}}/edit" class="btn btn-success mr-auto m-2">Editer votre profil</a>
+        {!!Form::open(['action' => ['ArtistsController@destroy', $artist->id], 'method' => 'POST', 'class' => 'pull-right m-2' ])!!}
             {{Form::hidden('_method', 'DELETE')}}
             {{ Form::submit('Supprimer votre profil', ['class' => 'btn btn-danger']) }}
         {!!Form::close()!!}
