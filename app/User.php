@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Relations
+     */
+    public function artist()
+    {   
+        // un user n'a qu'un seul profil
+        return $this->hasOne('App\Artist');
+    }
+
 }

@@ -8,6 +8,16 @@ use App\Artist ; // permet de lier le model Artist au controller ArtistsControll
 class ArtistsController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -78,6 +88,12 @@ class ArtistsController extends Controller
     public function edit($id)
     {
         $artist = Artist::find($id);
+
+        // Vérification du bon user 
+        if (auth()->user()->id !== $artist->user_id) {
+            return redirect('/artists')->with('error', 'Vous ne pouvez pas accéder à cette page');
+        }
+
         return view('artists.edit')->with('artist', $artist);
     }
 
@@ -119,6 +135,12 @@ class ArtistsController extends Controller
     public function destroy($id)
     {
         $artist = Artist::find($id);
+
+        // Vérification du bon user 
+        if (auth()->user()->id !== $artist->user_id) {
+            return redirect('/artists')->with('error', 'Vous ne pouvez pas accéder à cette page');
+        }
+        
         $artist->delete();
         return redirect('/artists')->with('success', 'Votre profil a bien été supprimé !');
     }
