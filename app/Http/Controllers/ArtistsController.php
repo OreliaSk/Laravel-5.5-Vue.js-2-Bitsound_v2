@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facade\Storage;
 use Illuminate\Http\Request;
-use App\Artist ; // permet de lier le model Artist au controller ArtistsController
+use App\Artist; // permet de lier le model Artist au controller ArtistsController
 
 class ArtistsController extends Controller
 {
@@ -52,7 +53,31 @@ class ArtistsController extends Controller
             'genre' => 'required',
             'soundcloud' => 'required',
             'youtube' => 'required',
+            'avatar' => 'image|nullable|max:1999',
         ]);
+
+        // Handle profile image
+        if ($request->hasFile('avatar')) 
+        {
+
+            // Get filename with the extension
+            $filenameWithExt = $request->file('avatar')->getClientOriginalName();
+
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            // Get just extension
+            $extension = $request->file('avatar')->getClientOriginalExtension();
+
+            // Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+            // Upload image
+            $path = $request->file('avatar')->storeAs('public/avatars', $fileNameToStore);
+            
+        }else{
+            $fileNameToStore = 'user.png';
+        }
         
         // Create artist profil
         $artist = new Artist;
@@ -62,6 +87,7 @@ class ArtistsController extends Controller
         $artist->soundcloud = $request->input('soundcloud');
         $artist->youtube = $request->input('youtube');
         $artist->user_id = auth()->user()->id;
+        $artist->avatar = $fileNameToStore;
         $artist->save();
 
         return redirect('/artists')->with('success', 'Votre profil a bien été crée !');
@@ -113,6 +139,26 @@ class ArtistsController extends Controller
             'soundcloud' => 'required',
             'youtube' => 'required',
         ]);
+
+        if ($request->hasFile('avatar')) 
+        {
+
+            // Get filename with the extension
+            $filenameWithExt = $request->file('avatar')->getClientOriginalName();
+
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+            // Get just extension
+            $extension = $request->file('avatar')->getClientOriginalExtension();
+
+            // Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+            // Upload image
+            $path = $request->file('avatar')->storeAs('public/avatars', $fileNameToStore);
+            
+        }
         
         // Create artist profil
         $artist = Artist::find($id);
@@ -121,6 +167,9 @@ class ArtistsController extends Controller
         $artist->genre = $request->input('genre');
         $artist->soundcloud = $request->input('soundcloud');
         $artist->youtube = $request->input('youtube');
+        if ($request->hasFile('avatar')){
+            $artist->avatar = $fileNameToStore;
+        }
         $artist->save();
 
         return redirect('/artists')->with('success', 'Votre profil a bien été mis à jour !');
@@ -139,6 +188,13 @@ class ArtistsController extends Controller
         // Vérification du bon user 
         if (auth()->user()->id !== $artist->user_id) {
             return redirect('/artists')->with('error', 'Vous ne pouvez pas accéder à cette page');
+        }
+
+        if ($artist->avatar !== 'user.png') 
+        {
+            
+            // Delete image if it's not the default image
+            Storage::delete('public/avatars'.$post->avatar);
         }
         
         $artist->delete();

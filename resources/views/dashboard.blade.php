@@ -7,7 +7,7 @@
         <div class="container">
             <div class="card p-3">
                 <h2 class="card-title text-center">Votre profil</h2>
-
+                <p class="text-center"><img style="width:80px; height:80px; border: 1px solid #ccc; border-radius:50%" src="{{$chemin}}/storage/avatars/{{$artist->avatar}}" alt="avatar"></p>
                 <div class="card-body text-center">
                     @if (session('status'))
                         <div class="alert alert-success">

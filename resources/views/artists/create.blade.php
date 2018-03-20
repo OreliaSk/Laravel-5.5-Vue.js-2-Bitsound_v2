@@ -3,7 +3,7 @@
 @section('content')
     <h1>Créer votre profil</h1>
     <!-- Using Laravel Colletive => https://laravelcollective.com/docs/master/html -->
-    {!! Form::open(['action' => 'ArtistsController@store', 'method' => 'POST']) !!}
+    {!! Form::open(['action' => 'ArtistsController@store', 'method' => 'POST', 'enctype' =>'multipart/form-data']) !!}
         <div class="form-group">
             <label>Votre nom</label>
             {{ Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Nom d\'artiste']) }}
@@ -23,6 +23,9 @@
         <div class="form-group">
             <label>Lien vers votre chaîne Youtube</label>
             {{ Form::text('youtube', '', ['class' => 'form-control', 'placeholder' => 'Youtube Chanel']) }}
+        </div>
+        <div class="form-group">
+            {{ Form::file('avatar') }}
         </div>
         {{ Form::submit('Envoyer', ['class' => 'btn btn-primary']) }}
     {!! Form::close() !!}

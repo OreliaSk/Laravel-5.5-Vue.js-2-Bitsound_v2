@@ -7,6 +7,7 @@
         <h2 class="text-center">{{$artist->name}}</h2>
         <small class="text-center">Posté le {{$artist->created_at->format('d/m/Y H:i:s')}}</small> <!-- Permet de convertir le format DATE -->
         <hr>
+        <img style="width:50px; height:50px;" src="/storage/avatars/{{$artist->avatar}}" alt="">
         <p><span class="font-weight-bold">Genre musical :</span> {{ $artist->genre}}</p>
         <!-- Afin de parser l'HTML lors de l'affichage, on utilise les !! -->
         <p>{!!$artist->biography!!}</p>
