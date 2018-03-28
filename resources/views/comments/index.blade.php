@@ -11,7 +11,10 @@
                     {{$comment->content}}
                 </p>
                 <hr>
-                <span class="d-block ml-auto">{{$comment->likes}}</span>
+                <div class=" ml-auto">
+                    <span><a href="#" style="text-decoration:none">{{Emoji::findByAlias("kissing_heart")}}</a></span>
+                    <span>{{$comment->likes}}</span>
+                </div>
             </div>
         @endforeach
     </div>
