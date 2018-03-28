@@ -7,7 +7,9 @@
         <div class="container">
             <div class="card p-3">
                 <h2 class="card-title text-center">Votre profil</h2>
-                <p class="text-center"><img style="width:80px; height:80px; border: 1px solid #ccc; border-radius:50%" src="{{$chemin}}/storage/avatars/{{$artist->avatar}}" alt="avatar"></p>
+                <p class="text-center">
+                    <img style="height:20vh; border: 1px solid #ccc; border-radius:50%" src="{{$chemin}}/storage/avatars/{{$artist->avatar}}" alt="avatar" >
+                </p>
                 <div class="card-body text-center">
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -16,9 +18,6 @@
                     @endif
 
                     <div class="card-body">
-                        <!--<a href="/artists/create" class="card-link btn btn-success">Créer votre page artiste</a>
-                        <a href="/artists/edit" class="card-link btn btn-primary">Editer votre profil</a>
-                        <a href="#" class="card-link btn btn-success">Ajouter une news</a>-->
                         @if(!$artist)
                         <table class="table table-stripped">
                             <tr>
@@ -41,6 +40,7 @@
                             <tr>
                                 <th>{{$artist->name}}</th>
                                 <th><a href="{{$chemin}}/artists/{{$artist->id}}/edit" class="card-link btn btn-primary">Editer votre profil</a></th>
+                                <th><a href="{{$chemin}}/artists/{{$artist->id}}/edit" class="card-link btn btn-success">Rédiger un commentaire</a></th>
                                 <th>
                                     {!!Form::open(['action' => ['ArtistsController@destroy', $artist->id], 'method' => 'POST', 'class' => 'm-2' ])!!}
                                         {{Form::hidden('_method', 'DELETE')}}

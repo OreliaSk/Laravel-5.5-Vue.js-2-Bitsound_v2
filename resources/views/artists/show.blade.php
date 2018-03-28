@@ -5,6 +5,7 @@
     <div class="card bg-faded p-2 m-3 container">
         <a href="{{$chemin}}/artists" class="btn btn-primary">Retour à la liste des artistes</a>
         <h2 class="text-center">{{$artist->name}}</h2>
+        <img class="d-block mx-auto" style="height:20vh; width:12vw; border: 1px solid #ccc; border-radius:50%" src="{{$chemin}}/storage/avatars/{{$artist->avatar}}" alt="avatar" >
         <small class="text-center">Posté le {{$artist->created_at->format('d/m/Y H:i:s')}}</small> <!-- Permet de convertir le format DATE -->
         <hr>
         <img style="width:50px; height:50px;" src="/storage/avatars/{{$artist->avatar}}" alt="">
@@ -20,14 +21,8 @@
             <a href="{{$artist->youtube}}">ici</a>
         </small>
         <hr>
-        @if(!Auth::guest())
-            @if(Auth::user()->id == $artist->user_id)
-                <a href="{{$chemin}}/artists/{{$artist->id}}/edit" class="btn btn-success mr-auto m-2">Editer votre profil</a>
-                {!!Form::open(['action' => ['ArtistsController@destroy', $artist->id], 'method' => 'POST', 'class' => 'pull-right m-2' ])!!}
-                    {{Form::hidden('_method', 'DELETE')}}
-                    {{ Form::submit('Supprimer votre profil', ['class' => 'btn btn-danger']) }}
-                {!!Form::close()!!}
-            @endif
-        @endif
+        <div class="container">
+            @include('comments.index')
+        </div>
     </div>
 @endsection

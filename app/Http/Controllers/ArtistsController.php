@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facade\Storage;
 use Illuminate\Http\Request;
 use App\Artist; // permet de lier le model Artist au controller ArtistsController
+use App\Comment;
 
 class ArtistsController extends Controller
 {
@@ -26,7 +27,7 @@ class ArtistsController extends Controller
     public function index()
     {
         $artists = Artist::orderBy('created_at', 'desc')->paginate(15);
-        return view('artists.index')->with('artists', $artists);
+        return  view('artists.index')->with('artists', $artists);
     }
 
     /**
@@ -101,8 +102,12 @@ class ArtistsController extends Controller
      */
     public function show($id)
     {
-        $artist = Artist::find($id);
-        return view('artists.show')->with('artist', $artist);
+        $data = [
+            'artist' => Artist::find($id),
+            'comments' => Comment::find($id)->comments
+        ];
+
+        return view('artists.show')->with($data);
     }
 
     /**
@@ -199,5 +204,6 @@ class ArtistsController extends Controller
         
         $artist->delete();
         return redirect('/artists')->with('success', 'Votre profil a bien été supprimé !');
+        
     }
 }
